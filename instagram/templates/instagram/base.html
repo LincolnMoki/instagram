@@ -1,0 +1,23 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Document</title>
+    {% endif %}
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% endblock %} 
+</head>
+<body>
+    {%include "instagram/navbar.html"%}
+    {% block content %}
+        
+    {% endblock content %}
+</body>
+</html>
