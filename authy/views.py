@@ -120,3 +120,6 @@ def PasswordChange(request):
 	}
 
 	return render(request, 'change_password.html', context)
+
+def PasswordChangeDone(request):
+	return render(request, 'change_password_done.html')
