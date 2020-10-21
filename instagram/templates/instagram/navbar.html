@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light justify-content-between">
-  <a class="navbar-brand" href="#"><img src="https://www.pngitem.com/pimgs/m/132-1327993_instagram-logo-word-png-transparent-png.png" height="50px" ></a>
+  <a class="navbar-brand" href="{% url 'home' %}"><img src="https://www.pngitem.com/pimgs/m/132-1327993_instagram-logo-word-png-transparent-png.png" height="50px" ></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,10 +13,13 @@
       </div>
       
       <li class="nav-item active">
+        <a href="{% url 'home' %}" class="navbar-item">
         <i class="material-icons" style="width: 40px;">home</i>
+        </a>
       </li>
       
       <li class="nav-item">
+        
         <i class="material-icons" style="width: 40px;" href="instagram/profile.html">send</i>
       </li>
 
@@ -32,5 +35,28 @@
         <i class="material-icons" style="width: 40px;" href="#">account_circle</i>        
       </li>
       </ul>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Settings
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Change password
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <a class="navbar-item">
+            Report an issue
+          </a>
+          <hr class="navbar-divider">
+          <a href="{% url 'logout' %}" class="navbar-item">
+            Log out
+          </a>
+        </div>
+      </div>
+    </div>
+    
     </div>
 </nav>
