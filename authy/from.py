@@ -15,3 +15,8 @@ def InvalidUser(value):
 def UniqueEmail(value):
 	if User.objects.filter(email__iexact=value).exists():
 		raise ValidationError('User with this email already exists.')
+
+def UniqueUser(value):
+	if User.objects.filter(username__iexact=value).exists():
+		raise ValidationError('User with this username already exists.')
+    
