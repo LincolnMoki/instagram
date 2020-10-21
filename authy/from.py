@@ -32,3 +32,9 @@ class SignupForm(forms.ModelForm):
 		model = User
 		fields = ('username', 'email', 'password')
 
+    def __init__(self, *args, **kwargs):
+		super(SignupForm, self).__init__(*args, **kwargs)
+		self.fields['username'].validators.append(ForbiddenUsers)
+		self.fields['username'].validators.append(InvalidUser)
+		self.fields['username'].validators.append(UniqueUser)
+		self.fields['email'].validators.append(UniqueEmail)
