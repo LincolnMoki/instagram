@@ -1,10 +1,23 @@
 {% extends 'instagram/base.html' %}
+
 {% block style %}
     {{ block.super }}
 {% endblock style %}
 
 
 {% block content %}
+<section class="section">
+    <div class="container">
+
+<div class="columns is-mobile has-text-centered">
+  <div class="column is-half is-offset-one-quarter">
+
+    <div class="card">
+    <div class="card-content">
+
+    <form method="post" action="" role="form">
+    {% csrf_token %}
+    <h3 class="title is-3">Create an account</h3>
 
 
 
