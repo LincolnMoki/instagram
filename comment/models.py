@@ -20,3 +20,10 @@ class Comment(models.Model):
 		sender = comment.user
 		notify = Notification(post=post, sender=sender, user=post.user, text_preview=text_preview ,notification_type=2)
 		notify.save() 
+    def user_del_comment_post(sender, instance, *args, **kwargs):
+		like = instance
+		post = like.post
+		sender = like.user
+
+		notify = Notification.objects.filter(post=post, sender=sender, notification_type=2)
+		notify.delete()    
