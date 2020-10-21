@@ -19,6 +19,17 @@
     {% csrf_token %}
     <h3 class="title is-3">Create an account</h3>
 
+    <div class="field">
+        <p class="control has-icons-left">
+        <label class="label is-medium">Username</label>
+          {{ form.username }}
+          <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+    </div>
+
+
 
 
 {% endblock content %}  
