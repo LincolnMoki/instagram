@@ -11,4 +11,12 @@ class Comment(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	body = models.TextField()
 	date = models.DateTimeField(auto_now_add=True)
+
     
+	def user_comment_post(sender, instance, *args, **kwargs):
+		comment = instance
+		post = comment.post
+		text_preview = comment.body[:90]
+		sender = comment.user
+		notify = Notification(post=post, sender=sender, user=post.user, text_preview=text_preview ,notification_type=2)
+		notify.save() 
