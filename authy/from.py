@@ -8,3 +8,6 @@ def ForbiddenUsers(value):
 	'email', 'user', 'join', 'sql', 'static', 'python', 'delete']
 	if value.lower() in forbidden_users:
 		raise ValidationError('Invalid name for user, this is a reserverd word.')
+def InvalidUser(value):
+	if '@' in value or '+' in value or '-' in value:
+		raise ValidationError('This is an Invalid user, Do not user these chars: @ , - , + ')
