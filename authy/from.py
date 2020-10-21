@@ -11,3 +11,7 @@ def ForbiddenUsers(value):
 def InvalidUser(value):
 	if '@' in value or '+' in value or '-' in value:
 		raise ValidationError('This is an Invalid user, Do not user these chars: @ , - , + ')
+
+def UniqueEmail(value):
+	if User.objects.filter(email__iexact=value).exists():
+		raise ValidationError('User with this email already exists.')
