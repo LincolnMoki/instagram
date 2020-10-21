@@ -33,3 +33,21 @@ def UserProfile(request, username):
 
     follow_status = Follow.objects.filter(following=user, follower=request.user).exists()
     
+    
+    	paginator = Paginator(posts, 8)
+	page_number = request.GET.get('page')
+	posts_paginator = paginator.get_page(page_number)
+
+	template = loader.get_template('profile.html')
+
+	context = {
+		'posts': posts_paginator,
+		'profile':profile,
+		'following_count':following_count,
+		'followers_count':followers_count,
+		'posts_count':posts_count,
+		'follow_status':follow_status,
+		'url_name':url_name,
+	}
+
+	return HttpResponse(template.render(context, request))
