@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instagram',
-    'bootstrap4'
+    'bootstrap4',
+    'authy'
 ]
 
 MIDDLEWARE = [
