@@ -28,3 +28,15 @@ class Profile(models.Model):
 	created = models.DateField(auto_now_add=True)
 	favorites = models.ManyToManyField(Post)
 	picture = models.ImageField(upload_to=user_directory_path, blank=True, null=True, verbose_name='Picture')
+
+    def save(self, *args, **kwargs):
+		super().save(*args, **kwargs)
+		SIZE = 250, 250
+
+		if self.picture:
+			pic = Image.open(self.picture.path)
+			pic.thumbnail(SIZE, Image.LANCZOS)
+			pic.save(self.picture.path)
+
+	def __str__(self):
+		return self.user.username
