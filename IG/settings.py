@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'instagram',
     'bootstrap4',
-    'authy'
+    'authy',
+    'comment'
+
 ]
 
 MIDDLEWARE = [
