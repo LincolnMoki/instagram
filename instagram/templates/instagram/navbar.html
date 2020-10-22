@@ -27,19 +27,30 @@
         <i class="material-icons" style="width: 40px;" href="#">explore</i>        
       </li>
 
-      <li class="nav-item">
-        <i class="material-icons" style="width: 40px;" href="#">favorite_border</i>        
+      <li class="nav-item">      
+        <a href="{% url 'show-notifications' %}" class="navbar-item">
+          <i class="material-icons" style="width: 40px;">favorite_border</i>
+          {% if count_notifications %}
+            <span class="badge">{{ count_notifications }}</span>
+          {% endif %}
+        </a>
+          
       </li>
-      <li class="nav-item">
-        <i class="material-icons" style="width: 40px;" href="#">account_circle</i>        
-      </li>
-    </ul>
+      <a href="{% url 'newpost' %}" class="navbar-item">
+        <i style="color: green;" class="material-icons">perm_media</i>
+         <strong>New Post</strong>
+      </a>
+
      
 
-      <!-- <div class="navbar-item has-dropdown is-hoverable"> -->
-       
-       
-<!--         
+      <div class="navbar-item has-dropdown is-hoverable">
+        <li class="nav-item">
+          <a href="{% url 'profile' request.user %}" class="navbar-item">
+            <i class="material-icons" style="width: 40px;" href="#">account_circle</i>
+            Profile - <strong>{{ request.user }}</strong>
+          </a>       
+        </li>
+        </ul>
         <a class="navbar-link">
           Settings
         </a>
@@ -60,7 +71,7 @@
           </a>
         </div>
       </div>
-    </div> -->
+    </div>
 
     </div>
 </nav>

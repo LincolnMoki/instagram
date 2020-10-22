@@ -104,13 +104,13 @@ def user_unlike_post(sender, instance, *args, **kwargs):
     notify = Notification.objects.filter(post=post, sender=sender, notification_type=1)
     notify.delete()
 
-#Stream
-post_save.connect(Stream.add_post, sender=Post)
+# #Stream
+# post_save.connect(Stream.add_post, sender=Post)
 
 #Likes
-post_save.connect(Likes.user_liked_post, sender=Likes)
-post_delete.connect(Likes.user_unlike_post, sender=Likes)
+# post_save.connect(Likes.user_liked_post, sender=Likes)
+# post_delete.connect(Likes.user_unlike_post, sender=Likes)
 
-#Follow
-post_save.connect(Follow.user_follow, sender=Follow)
-post_delete.connect(Follow.user_unfollow, sender=Follow)
+# #Follow
+# post_save.connect(Follow.user_follow, sender=Follow)
+# post_delete.connect(Follow.user_unfollow, sender=Follow)
