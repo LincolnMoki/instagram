@@ -89,7 +89,7 @@ def Signup(request):
 			email = form.cleaned_data.get('email')
 			password = form.cleaned_data.get('password')
 			User.objects.create_user(username=username, email=email, password=password)
-			return redirect('index')
+			return redirect('home')
 	else:
 		form = SignupForm()
 	
@@ -140,7 +140,7 @@ def EditProfile(request):
 			profile.url = form.cleaned_data.get('url')
 			profile.profile_info = form.cleaned_data.get('profile_info')
 			profile.save()
-			return redirect('index')
+			return redirect('home')
 	else:
 		form = EditProfileForm()
 
