@@ -28,5 +28,5 @@ def user_del_comment_post(sender, instance, *args, **kwargs):
     notify = Notification.objects.filter(post=post, sender=sender, notification_type=2)
     notify.delete()    
 
- post_save.connect(Comment.user_comment_post, sender=Comment)
- post_delete.connect(Comment.user_del_comment_post, sender=Comment)
+post_save.connect(Comment.user_comment_post, sender=Comment)
+post_delete.connect(Comment.user_del_comment_post, sender=Comment)
