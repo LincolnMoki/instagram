@@ -1,3 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.template import loader
+from django.http import HttpResponse
 
-# Create your views here.
+from notifications.models import Notification
+
+def ShowNOtifications(request):
+	user = request.user
+	notifications = Notification.objects.filter(user=user).order_by('-date')
+	Notification.objects.filter(user=user, is_seen=False).update(is_seen=True)
+
+	template = loader.get_template('notifications.html')
+
+	context = {
+		'notifications': notifications,
+	}
+
+	return HttpResponse(template.render(context, request))
+
