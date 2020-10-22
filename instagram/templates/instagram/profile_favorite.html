@@ -27,4 +27,38 @@
 
           <br>
       </div>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Post</p>
+            <p class="title">{{ posts_count }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Following</p>
+            <p class="title">{{ following_count }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Followers</p>
+            <p class="title">{{ followers_count }}</p>
+          </div>
+        </div>
+      </nav>
+      <p class="subtitle is-5">{% if profile.profile_info %}{{ profile.profile_info }}{% endif %}</p>
+      
+    {% if user.is_authenticated and user == profile.user %}
+      <a class="button is-info">Edit Profile</a>
+    {% endif %}
+
+  </div>
+</div>
+</article>
+         
+
+</div>
+</div>
+</section>
 {% endblock content %}    
