@@ -71,3 +71,16 @@ def user_unfollow(sender, instance, *args, **kwargs):
 
     notify = Notification.objects.filter(sender=sender, user=following, notification_type=3)
     notify.delete()
+class Stream(models.Model):
+    following = models.ForeignKey(User, on_delete=models.CASCADE,null=True, related_name='stream_following')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)   
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+    date = models.DateTimeField()
+
+def add_post(sender, instance, *args, **kwargs):
+    post = instance
+    user = post.user
+    followers = Follow.objects.all().filter(following=user)
+    for follower in followers:
+        stream = Stream(post=post, user=follower.follower, date=post.posted, following=user)
+        stream.save()
