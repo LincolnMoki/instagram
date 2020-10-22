@@ -1,0 +1,30 @@
+{% extends 'instagram/base.html' %}
+{% block style %}
+    {{ block.super }}
+{% endblock style %}
+
+{% block content %}
+<article class="media">
+    <div class="media-left">
+        <figure class="image is-256x256">
+          {% if profile.picture %}
+          <img class="is-rounded" src="{{ profile.picture.url }}">
+          {% else %}
+          <img class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
+          {% endif %}
+        </figure>
+    </div>
+
+     <div class="media-content">
+
+      <div class="content">
+          <h1 class="title is-1">@{{ profile.user }}</h1>
+          <p class="subtitle is-3">{% if profile.first_name %}{{ profile.first_name }} {{ profile.last_name }}{% endif %}</p>
+
+          <div class="media-right">
+                <a class="button is-success">Follow</a>
+          </div>
+
+          <br>
+      </div>
+{% endblock content %}    
