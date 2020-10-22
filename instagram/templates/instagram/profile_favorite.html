@@ -61,4 +61,46 @@
 </div>
 </div>
 </section>
+
+<section class="section">
+    <div class="container">
+  
+          <div class="tabs is-centered">
+            <ul>
+              <li>
+                <a href="{% url 'profile' profile.user %}">
+                  <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                  <i class="material-icons md-36">dashboard</i>
+                  <span>Posts</span>
+                </a>
+              </li>
+              <li class="is-active">
+                <a href="{% url 'profilefavorites' profile.user %}">
+                  <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
+                  <i class="material-icons md-36">save_alt</i>
+                  <span>Saved</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+      
+    </div>
+    </section>
+  
+  <div class="columns is-multiline is-mobile">
+  
+  {% for post in posts %}
+    <div class="column is-one-quarter">
+    <div class="box">
+      <figure class="image is-256x256">
+        <a href="{{ post.get_absolute_url }}"><img src="{{ post.picture.url }}"></a>
+      </figure>
+    </div>
+    </div>
+  {% endfor %}
+  
+    
+  
+  </div>
+  
 {% endblock content %}    
