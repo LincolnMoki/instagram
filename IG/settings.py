@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'instagram',
     'bootstrap4',
     'authy',
-    'comment'
+    'comment',
+    'direct',
+    'notifications',
+    'post'
+
 
 ]
 
